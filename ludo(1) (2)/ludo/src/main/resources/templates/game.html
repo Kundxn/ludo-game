@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ludo Game</title>
+</head>
+<body>
+<h1>Game ID: <span th:text="${game.id}"></span></h1>
+<h2>Players</h2>
+<ul>
+    <li th:each="player : ${game.players}">
+        <span th:text="${player.name}"></span> - <span th:text="${player.color}"></span>
+    </li>
+</ul>
+
+<h2>Roll Dice</h2>
+<form action="/ludo/roll-dice" method="post">
+    <input type="hidden" name="gameId" th:value="${game.id}">
+    <button type="submit">Roll Dice</button>
+</form>
+</body>
+</html>
